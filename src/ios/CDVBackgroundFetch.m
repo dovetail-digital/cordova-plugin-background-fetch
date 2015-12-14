@@ -96,6 +96,17 @@
     }
 }
 
+-(void) stopFetch:(CDVInvokedUrlCommand*)command
+{
+    [self disableFetch];
+}
+
+-(void) disableFetch
+{
+    UIApplication *app = [UIApplication sharedApplication];
+    [app setMinimumBackgroundFetchInterval:UIApplicationBackgroundFetchIntervalNever];
+}
+
 /**
  * Termination. Checks to see if it should turn off
  */
@@ -104,8 +115,7 @@
     NSLog(@"- CDVBackgroundFetch onAppTerminate");
     if (stopOnTerminate) {
         NSLog(@"- stopping background-fetch");
-        UIApplication *app = [UIApplication sharedApplication];
-        [app setMinimumBackgroundFetchInterval:UIApplicationBackgroundFetchIntervalNever];
+        [self disableFetch];
     }
 }
 

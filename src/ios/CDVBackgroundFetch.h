@@ -11,6 +11,7 @@
 @property (nonatomic, strong) NSString* fetchCallbackId;
 - (void) configure:(CDVInvokedUrlCommand*)command;
 - (void) finish:(CDVInvokedUrlCommand*)command;
+- (void) stopFetch:(CDVInvokedUrlCommand*)command;
 
 @end
 

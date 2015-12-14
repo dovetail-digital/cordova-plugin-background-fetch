@@ -50,6 +50,13 @@ module.exports = {
             'finish',
             []);
         this.isActive = false;
+    },
+    stop: function(success, failure) {
+        exec(success || function(){},
+            failure || function(){},
+            'BackgroundFetch',
+            'stopFetch',
+            []);
     }
 };
 
